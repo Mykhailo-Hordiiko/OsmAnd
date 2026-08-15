@@ -18,13 +18,15 @@ import com.hordiiko.osmand.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegionsScreen() {
+fun RegionsScreen(
+    onBackClick: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
                 navigationIcon = {
                     IconButton(
-                        onClick = {}
+                        onClick = { onBackClick() }
                     ) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Outlined.ArrowBack,

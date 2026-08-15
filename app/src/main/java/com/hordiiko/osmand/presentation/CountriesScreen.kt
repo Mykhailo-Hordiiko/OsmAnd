@@ -15,7 +15,9 @@ import com.hordiiko.osmand.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CountriesScreen() {
+fun CountriesScreen(
+    onCountrySelected: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -29,7 +31,7 @@ fun CountriesScreen() {
                 .padding(innerPadding)
         ) {
             Button(
-                onClick = {}
+                onClick = { onCountrySelected() }
             ) {
                 Text("Regions")
             }
