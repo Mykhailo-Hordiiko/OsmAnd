@@ -23,6 +23,7 @@ private const val ATTR_TRANSLATE = "translate"
 private const val ATTR_INNER_DOWNLOAD_PREFIX = "inner_download_prefix"
 private const val ATTR_INNER_DOWNLOAD_SUFFIX = "inner_download_suffix"
 
+private const val ID_SEPARATOR = "|"
 private const val TRANSLATE_SEPARATOR = ";"
 private const val NAME_PREFIX_1 = "name:en="
 private const val NAME_PREFIX_2 = "name="
@@ -161,7 +162,7 @@ private fun parseRegionNode(
 }
 
 private fun buildId(parentId: String?, name: String): String =
-    if (parentId != null) "$parentId/$name" else name
+    if (parentId != null) "$parentId$ID_SEPARATOR$name" else name
 
 private fun resolveName(name: String, translate: String?): String {
     if (translate == null) {
