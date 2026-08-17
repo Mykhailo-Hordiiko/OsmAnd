@@ -4,30 +4,47 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.hordiiko.osmand.presentation.CountriesScreen
+import androidx.navigation.navArgument
 import com.hordiiko.osmand.presentation.RegionsScreen
+import com.hordiiko.osmand.presentation.countries.CountriesScreen
 
 @Composable
 fun MainNavHost(navController: NavHostController) {
+    val navigateToRegion: (String) -> Unit = { regionId ->
+        navController.navigate(Screen.Regions.createRoute(regionId))
+    }
+
     NavHost(
         modifier = Modifier.fillMaxSize(),
         startDestination = Screen.Countries.route,
         navController = navController
     ) {
-        composable(Screen.Countries.route) {
+        composable(
+            route = Screen.Countries.route
+        ) {
             CountriesScreen(
-                onCountrySelected = {
-                    navController.navigateTo(Screen.Regions)
-                }
+                onNodeClick = navigateToRegion
             )
         }
-        composable(Screen.Regions.route) {
+
+        composable(
+            route = Screen.Regions.route,
+            arguments = listOf(
+                navArgument(ARG_REGION_ID) { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val regionId: String =
+                backStackEntry.arguments
+                    ?.getString(ARG_REGION_ID)
+                    ?: return@composable
+
             RegionsScreen(
-                onBackClick = {
-                    navController.goBack()
-                }
+                regionId = regionId,
+                onNodeClick = navigateToRegion,
+                onBackClick = { navController.goBack() }
             )
         }
     }
