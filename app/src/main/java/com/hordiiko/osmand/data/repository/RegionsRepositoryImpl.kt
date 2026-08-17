@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlin.coroutines.cancellation.CancellationException
 
 class RegionsRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context
@@ -16,16 +17,21 @@ class RegionsRepositoryImpl @Inject constructor(
 
     private var regionsTreeCache: RegionsTree? = null
 
-    override suspend fun getCountries(): List<Region> {
-        val tree: RegionsTree =
-            regionsTreeCache ?: withContext(Dispatchers.IO) {
-                parseRegionsTree(context)
-            }.also {
-                regionsTreeCache = it
-            }
+    override suspend fun getCountries(): Result<List<Region>> =
+        try {
+            val tree: RegionsTree =
+                regionsTreeCache ?: withContext(Dispatchers.IO) {
+                    parseRegionsTree(context)
+                }.also {
+                    regionsTreeCache = it
+                }
 
-        return tree.countries
-    }
+            Result.success(tree.countries)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
 
     override fun findRegion(id: String): Region? = regionsTreeCache?.findById(id)
 }

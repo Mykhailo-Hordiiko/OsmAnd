@@ -4,7 +4,7 @@ import com.hordiiko.osmand.domain.model.Region
 
 interface RegionsRepository {
 
-    suspend fun getCountries(): List<Region>
+    suspend fun getCountries(): Result<List<Region>>
 
     fun findRegion(id: String): Region?
 }
