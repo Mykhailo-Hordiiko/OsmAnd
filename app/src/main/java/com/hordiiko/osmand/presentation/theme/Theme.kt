@@ -8,55 +8,17 @@ import androidx.compose.runtime.Composable
 @Composable
 fun AppTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = lightColorScheme,
+        colorScheme = appColorScheme,
         content = content
     )
 }
 
-private val lightColorScheme: ColorScheme =
+private val appColorScheme: ColorScheme =
     lightColorScheme(
-        primary = primaryLight,
-        onPrimary = onPrimaryLight,
-        primaryContainer = primaryContainerLight,
-        onPrimaryContainer = onPrimaryContainerLight,
-
-        secondary = secondaryLight,
-        onSecondary = onSecondaryLight,
-        secondaryContainer = secondaryContainerLight,
-        onSecondaryContainer = onSecondaryContainerLight,
-
-        tertiary = tertiaryLight,
-        onTertiary = onTertiaryLight,
-        tertiaryContainer = tertiaryContainerLight,
-        onTertiaryContainer = onTertiaryContainerLight,
-
-        background = backgroundLight,
-        onBackground = onBackgroundLight,
-
-        surface = surfaceLight,
-        onSurface = onSurfaceLight,
-        surfaceVariant = surfaceVariantLight,
-        onSurfaceVariant = onSurfaceVariantLight,
-        surfaceTint = primaryLight,
-        surfaceBright = surfaceBrightLight,
-        surfaceContainer = surfaceContainerLight,
-        surfaceContainerHigh = surfaceContainerHighLight,
-        surfaceContainerHighest = surfaceContainerHighestLight,
-        surfaceContainerLow = surfaceContainerLowLight,
-        surfaceContainerLowest = surfaceContainerLowestLight,
-        surfaceDim = surfaceDimLight,
-
-        inversePrimary = inversePrimaryLight,
-        inverseSurface = inverseSurfaceLight,
-        inverseOnSurface = inverseOnSurfaceLight,
-
-        error = errorLight,
-        onError = onErrorLight,
-        errorContainer = errorContainerLight,
-        onErrorContainer = onErrorContainerLight,
-
-        outline = outlineLight,
-        outlineVariant = outlineVariantLight,
-
-        scrim = scrimLight
+        primary = topBar,
+        background = activityBackground,
+        onBackground = text,
+        surface = itemBackground,
+        onSurface = text,
+        outline = divider
     )
