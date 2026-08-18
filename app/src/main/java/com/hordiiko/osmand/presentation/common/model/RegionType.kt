@@ -1,4 +1,4 @@
-package com.hordiiko.osmand.presentation.common
+package com.hordiiko.osmand.presentation.common.model
 
 sealed interface RegionType {
     data object Node : RegionType

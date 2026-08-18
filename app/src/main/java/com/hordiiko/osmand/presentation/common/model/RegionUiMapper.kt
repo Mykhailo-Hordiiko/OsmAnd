@@ -1,4 +1,4 @@
-package com.hordiiko.osmand.presentation.common
+package com.hordiiko.osmand.presentation.common.model
 
 import com.hordiiko.osmand.domain.model.Region
 

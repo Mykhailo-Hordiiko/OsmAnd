@@ -1,4 +1,4 @@
-package com.hordiiko.osmand.presentation.common
+package com.hordiiko.osmand.presentation.common.model
 
 data class RegionUi(
     val id: String,
