@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">OsmAnd</string>
+
     <string name="download_maps">Download Maps</string>
+    <string name="loading">Loading…</string>
+    <string name="error_unknown">Unknown error</string>
 
     <string name="cd_back">Back</string>
 </resources>

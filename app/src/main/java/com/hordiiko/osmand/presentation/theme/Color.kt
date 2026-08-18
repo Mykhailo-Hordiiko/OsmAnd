@@ -2,7 +2,7 @@ package com.hordiiko.osmand.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
-val statusBar: Color = Color(0xFFE68200)
+val statusBarColor: Color = Color(0xFFE68200)
 val topBar: Color = Color(0xFFFF8800)
 
 val activityBackground: Color = Color(0xFFEAEAEA)

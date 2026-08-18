@@ -26,7 +26,7 @@ class RegionsRepositoryImpl @Inject constructor(
                     regionsTreeCache = it
                 }
 
-            Result.success(tree.countries)
+            Result.success(tree.countries.sortedBy { it.name })
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {

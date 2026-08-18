@@ -54,6 +54,9 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.navigation.common.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.material3)
+
+    implementation(libs.kotlinx.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.kotlinx.coroutines.android)
 }

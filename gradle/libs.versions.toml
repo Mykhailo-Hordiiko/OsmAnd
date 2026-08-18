@@ -10,7 +10,10 @@ coreKtx = "1.13.1"
 lifecycle = "2.8.6"
 activityCompose = "1.13.0"
 composeBom = "2024.09.00"
-navigationCommonAndroid = "2.9.8"
+navigationCompose = "2.9.8"
+hiltNavigationCompose = "1.2.0"
+
+coroutines = "1.10.2"
 
 [libraries]
 google-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -21,9 +24,12 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose" }
-androidx-navigation-common-android = { group = "androidx.navigation", name = "navigation-common-android", version.ref = "navigationCommonAndroid" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+kotlinx-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
