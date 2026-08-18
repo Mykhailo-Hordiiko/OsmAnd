@@ -33,5 +33,11 @@ class RegionsRepositoryImpl @Inject constructor(
             Result.failure(e)
         }
 
-    override fun findRegion(id: String): Region? = regionsTreeCache?.findById(id)
+    override fun findRegion(id: String): Region? =
+        regionsTreeCache?.findById(id)
+            ?.let { region ->
+                region.copy(
+                    subRegions = region.subRegions.sortedBy { it.name }
+                )
+            }
 }

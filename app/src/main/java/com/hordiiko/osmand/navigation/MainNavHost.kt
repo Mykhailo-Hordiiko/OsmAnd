@@ -8,8 +8,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.hordiiko.osmand.presentation.RegionsScreen
 import com.hordiiko.osmand.presentation.countries.CountriesScreen
+import com.hordiiko.osmand.presentation.regions.RegionsScreen
 
 @Composable
 fun MainNavHost(navController: NavHostController) {
@@ -35,14 +35,8 @@ fun MainNavHost(navController: NavHostController) {
             arguments = listOf(
                 navArgument(ARG_REGION_ID) { type = NavType.StringType }
             )
-        ) { backStackEntry ->
-            val regionId: String =
-                backStackEntry.arguments
-                    ?.getString(ARG_REGION_ID)
-                    ?: return@composable
-
+        ) {
             RegionsScreen(
-                regionId = regionId,
                 onNodeClick = navigateToRegion,
                 onBackClick = { navController.goBack() }
             )
